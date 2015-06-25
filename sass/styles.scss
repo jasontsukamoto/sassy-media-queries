@@ -1,0 +1,108 @@
+// Resets, Clearfix, etc
+// import reset and clearfix
+@import 'partials/reset';
+
+// Variables
+$dark: #222;
+$light: #EEE;
+$highlight: orange;
+$padding: 20px;
+
+// Media Query Ranges
+$medium: "only screen and (min-width: 600px) and (max-width: 899px)";
+$large: "only screen and (min-width: 900px)";
+
+// Mixins
+@mixin block_font($block_font_size: 25px, $block_font_color: $dark) {
+    font-size: $block_font_size;
+    color: $block_font_color;
+}
+
+// Styles
+body {
+    background-color: $highlight;
+    text-align: center;
+    color: $light;
+    @media #{$large}{
+      background-color: $dark;
+      color: $highlight;
+    }
+
+}
+
+h1, h2, h3, h4 {
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    @include block_font(35px, $light);
+    @media #{$medium}{
+      color: $highlight;
+    }
+    @media #{$large}{
+      color: $dark;
+    }
+
+}
+
+h1 {
+    padding: $padding;
+    @include block_font(55px, $dark);
+
+    @media #{$medium}{
+      color: $light;
+    @include block_font(55px, $light);
+
+    }
+
+    @media #{$large}{
+      color: $highlight;
+    }
+}
+
+h2 {}
+
+.block_family {
+    max-width: 350px;
+    margin: auto;
+    @media #{$medium}{
+      max-width: 500px;
+    }
+    @media #{$large}{
+      max-width: 800px;
+      margin: auto;
+    }
+}
+
+.block_family li {
+    background-color: $dark;
+    margin-bottom: $padding;
+    padding: $padding;
+    @media #{$medium}{
+      background-color: $light;
+      display: block;
+      float: left;
+      border: 2px solid $highlight;
+      width: 205px;
+      margin-bottom: 0px;
+      &:nth-child(odd){
+        background-color: $dark;
+      }
+    }
+
+    @media #{$large}{
+      background-color: $highlight;
+      display: block;
+      float: left;
+      border: 1px solid $dark;
+      margin-left: 4px;
+      margin-right: 4px;
+      width: 216px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      &:nth-child(3n+2){
+        background-color: $light;
+      }
+    }
+}
+
+
+
+
